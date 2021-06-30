@@ -34,3 +34,17 @@ let id2 = Symbol("id");
 console.log(id1 === id2);
 
 // 심볼은 자동으로 형 변환이 되지 않음
+
+// Symbols in a literal
+//  리터럴을 사용해 객체를 만들 경우, 대괄호를 사용해 심볼형 키를 만들어야 함.
+let user2 = {
+    name: 'Yechan',
+    [id]: 123
+}
+
+
+// 전역 심볼 : 전역 심볼 레지스트리 안에 심볼들을 만들어 놓고, 심볼에 접근하면 항상 동일한 심볼을 반환해줌
+let idFirst = Symbol.for("id");
+console.log(idFirst);
+let idAgain = Symbol.for('id');
+console.log(idFirst === idAgain);
