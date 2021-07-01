@@ -73,3 +73,16 @@ let arrayLike = {
 };
 
 console.log(arr1.concat(arrayLike));
+
+
+// map, set
+let map = new Map();
+let keyObject = {hi: "hi", bye: 'bye'}
+map.set("string", "스트링도 가능합니당~");
+map.set(keyObject, "객체도 키로 사용할 수 있습니다.");
+let takenFromKey = map.get(keyObject);
+console.log(takenFromKey);
+console.log(keyObject);
+console.log(map.has(keyObject));
+map.delete(keyObject);
+console.log(map);   // map이라도 하자 오느류ㅠㅠㅠㅠㅠㅠ
