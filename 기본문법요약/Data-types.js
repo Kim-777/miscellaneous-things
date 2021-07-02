@@ -156,8 +156,79 @@ console.log(prices.orange);
 let set = new Set();
 set.add('1');
 set.add('2');
-set.delete('2'
-)
+set.delete('2');
 
-console.log('================================================================================================================');
+console.log('======================================================== 5. weakMap, weakSet ========================================================');
 
+// weakMap의 key는 반드시 객체여야 함
+let weakMap = new WeakMap();
+let objForWeakMapKey = {};
+weakMap.set(objForWeakMapKey, "워크맵의 키는 반드시 객체여야 합니다.");
+
+
+console.log('======================================================== 6. Object.keys, values, entries ========================================================');
+//  keys, values, entries를 사용할 수 있는 자료구조는 Map, Set, Array 세가지.
+// 일반 객체에선 Object.keys(obj), Object.values(obj), Object.entries(obj)를 사용해야 합니다.
+
+let userForObject = {
+    name: 'bibi',
+    age: 30
+}
+
+for(let value of Object.values(userForObject)) {
+    console.log(value);
+}
+
+
+prices = {
+    banana: 1,
+    orange: 2,
+    meat: 4,
+}
+
+
+let doublePrices = Object.fromEntries(Object.entries(prices).map(([key, value]) => [key, value * 2]));
+console.log(doublePrices);
+
+
+console.log('======================================================== 7. destructuring assignment ========================================================');
+
+let arrForDestructuring = ["gugu", 'bubu', "nono", "lili"];
+let [first, second, third, four] = arrForDestructuring;
+console.log(first, second, third, four);
+
+let optionsForDestructuring =  {title: "Menu"};
+
+let {width:w = 100, height:h = 200} = optionsForDestructuring;    // = 를 통해 default 값을 설정해 줄 수 있습니다. : 통해 key 네임을 바꾸어서 구조 분해 할 수 있습니다.
+// console.log(width, height, title);
+console.log(w, h);
+
+
+optionsForDestructuring.height = 200;
+optionsForDestructuring.width = 100;
+console.log(optionsForDestructuring);
+let {title, ...rest} = optionsForDestructuring;
+console.log(rest);
+
+
+console.log('======================================================== 8. Date ========================================================');
+let now = new Date();
+console.log(now);
+console.log(now.getFullYear(), now.getMonth(), now.getDate(), now.getHours(), now.getMinutes(), now.getSeconds(), now.getMilliseconds());
+console.log(new Date().getTimezoneOffset());
+
+
+console.log('======================================================== 9. JSON ========================================================');
+
+let userForJSON = {
+    name: "jonn",
+    age: 30,
+    toString() {
+        return `{name: "${this.name}", age: ${this.age}}`;
+    }
+}
+
+console.log(userForJSON); //콘솔은 객체 자체를 string화 해서 출력하기 때문에 alert과 다르게 toString() function도 로깅됨.
+console.log(JSON.stringify(userForJSON));   // JSON-encoded, serialized, stringified, marshalled라고 불림
+
+//  JSON은 데이터 교환을 목적으로 만들어진 언어에 종속되지 않는 포맷. 자바스크립트 특유의 객체 프로퍼티는 JSON.stringify가 처리할 수 없음. ex) 함수, 심볼, undefined
