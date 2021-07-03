@@ -1,3 +1,5 @@
+console.log('======================================================== 1. number ========================================================');
+
 // 1. 숫자형
 let billion = 1e9;
 console.log(billion);
@@ -25,6 +27,8 @@ console.log(isNaN('str'));
 console.log(isNaN(' '));
 console.log(isFinite(' '));
 
+console.log('======================================================== 2. string ========================================================');
+
 // 2. 문자열
 let single = '작음따음표';
 let double = "큰따음표";
@@ -48,6 +52,8 @@ while(true) {
     console.log(`위치 : ${foundPos}`);
     pos = foundPos + 1;
 }
+
+console.log('======================================================== 3. array ========================================================');
 
 
 // 3. 배열
@@ -75,7 +81,12 @@ let arrayLike = {
 console.log(arr1.concat(arrayLike));
 
 
-// map, set
+
+console.log('======================================================== 4. map, set ========================================================');
+
+
+// 4. map, set
+
 let map = new Map();
 let keyObject = {hi: "hi", bye: 'bye'}
 map.set("string", "스트링도 가능합니당~");
@@ -85,7 +96,75 @@ console.log(takenFromKey);
 console.log(keyObject);
 console.log(map.has(keyObject));
 map.delete(keyObject);
-console.log(map);   // map이라도 하자 오느류ㅠㅠㅠㅠㅠㅠ
+
+console.log(map);   // map
 map.clear();
 
 //  map[key] = 2와 같이 사용할 수 있지만 이 방법으로 값을 넣을 시 일반 객체처럼 취급하게 됨. 그러므로 꼭 set, get 메서드 사용합시당!
+
+console.log(map); 
+
+// map의 set 메서드는 자기 자신을 return 하기 때문에 chaining 가능.
+map.set('1', 'str1')
+    .set(1, 'num1')
+    .set(true, 'bool')
+
+
+// 맵의 요소에 반복 작업하기   keys(), values(), entries()
+console.log(map.keys());
+console.log(map.values());
+console.log(map.entries());
+
+
+let recipeMap = new Map([
+    ['cucumber', 500],
+    ['tomatoes', 350],
+    ['onion', 50]
+]);
+
+
+for (let vegetable of recipeMap.keys()) {
+    console.log(vegetable);
+}
+
+for (let amount of recipeMap.values()) {
+    console.log(amount);
+}
+
+for (let entry of recipeMap) {
+    console.log(entry);
+}
+
+
+// 평범한 객체를 가지고 맵을 만들고 싶다면 Object.entries(obj)를 활용. 객체의 키-값 쌍을 요소로 가지는 배열을 반환
+
+let objForMap = {
+    name: 'jonnnnn',
+    age: 30,
+}
+
+
+let mapFromObject = new Map(Object.entries(objForMap));
+console.log(mapFromObject);
+
+
+// 맵을 객체로 바꾸기 위해선 Object.fromEntries를 사용하면 됨.
+let prices = Object.fromEntries([
+    ['banana', '바나나'],
+    ['orange', '오랑지'],
+    ['meat', '고기'],
+]);
+
+console.log(prices.orange);
+
+
+// set은 중복을 허용하지 않는 값을 모아놓은 특별한 컬렉션.
+let set = new Set();
+set.add('1');
+set.add('2');
+set.delete('2'
+)
+
+console.log('================================================================================================================');
+
+
