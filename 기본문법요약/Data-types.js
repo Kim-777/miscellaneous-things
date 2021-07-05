@@ -96,6 +96,12 @@ console.log(takenFromKey);
 console.log(keyObject);
 console.log(map.has(keyObject));
 map.delete(keyObject);
+
+console.log(map);   // map
+map.clear();
+
+//  map[key] = 2와 같이 사용할 수 있지만 이 방법으로 값을 넣을 시 일반 객체처럼 취급하게 됨. 그러므로 꼭 set, get 메서드 사용합시당!
+
 console.log(map); 
 
 // map의 set 메서드는 자기 자신을 return 하기 때문에 chaining 가능.
