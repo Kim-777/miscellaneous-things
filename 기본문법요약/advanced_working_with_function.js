@@ -25,6 +25,44 @@ console.log(Math.max(...arrayForSpread));
 console.log('======================================================== 3. Variable scope, closure ========================================================');
 // 자바스크립트는 함수 지향 언어. 생성한 함수를 다른 함수에 인수로 넘길 수 있으며, 생성된 곳이 아닌 곳에서 함수를 호출할 수도 있기 때문입니다.
 // 자바 명세에는 렉시컬 환경이라는 엔진이 사용하는 객체가 존재.
+// 자바스크립트는 쉽게 중첩(nested) 함수를 만들 수 있습니다.
+
+function fnForNested (firstName, lastName) {
+
+    function getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    console.log(`Hello, ${getFullName()}`);
+    console.log(`Bye ${getFullName()}`);
+}
+
+let firstNameForNested = 'YeChan';
+let lastNameForNested = 'Kim'
+
+console.log(fnForNested(firstNameForNested, lastNameForNested));
+
+
+const makeCounterForNested = () => {
+    let count = 1;
+    console.log('makeCounterForNested');
+
+    return function() {
+        return count++;
+    };
+}
+
+
+let counter = makeCounterForNested();
+
+console.log(counter());
+console.log(counter());
+console.log(counter());
+
+// 실행 중인 함수, 코드 블록({...}), 스크립트 전체는 렉시컬 환경이라 불리는 내부 숨김 연관 객체(internal hidden associated object)를 갖습니다.
+// 렉시컬 환경 객체는 두 부분으로 구성 됩니다. 1. 환경 레코드 - 모든 지역 변수를 프로퍼티로 저장하고 있는 객체. this 값과 같은 기타 정보도 여기에 저장 2. 외부 렉시컬 롼경에 대한 참조 - 외부 코드와 연관됨.
+
+
 
 
 console.log('======================================================== 4. The old "var" ========================================================');
