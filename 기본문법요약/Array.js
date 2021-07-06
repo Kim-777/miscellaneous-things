@@ -13,7 +13,7 @@ shopping.length // length 프로퍼티를 이용해 배열의 크기를 알 수 
 
 
 // 배열 내부에 배열이 들어 갈수도 있습니다.
-let random = ["1, "2", ["일", "이"]];
+let random = ["1", "2", ["일", "이"]];
 random[2][1] // "이"
 
 
@@ -24,7 +24,7 @@ let arrayForEx = ["사과", "바나나", "우유", "초코바", "쌀"];
 arrayForEx.pop(); // "쌀"을 리턴하며 배열에서 제거
 
 // push는 배열의 마지막에 인자로 받은 값을 추가
-arrayForEx.push("보리") "보리"를 배열의 마지막에 추가
+arrayForEx.push("보리") // "보리"를 배열의 마지막에 추가
 
 // shift는 배열의 맨 앞의 요소를 꺼내며 리턴합니다.
 arrayForEx.shift(); // "사과"를 리턴하며 배열에서 제거
@@ -106,7 +106,7 @@ console.log(str); // "yechan;bosung;hakyung;jaeyun"
 // 2번째 initial 인수 값이 주어졌다면 첫번째 요소의 accumulator는 그 값이 되고, 주어지지 않았다면
 // 첫번째 요소를 initial의 값으로 사용합니다.
 // reduceRight는 같은 작업을 요소의 맨 마지막 부분부터 시작하는 메서드입니다.
-let arr = [1. 2, 3, 4, 5];
+let arr = [1, 2, 3, 4, 5];
 let result = arr.reduce((sum, current) => sum + current, 0);
 console.log(result) // 15
 
@@ -117,4 +117,4 @@ console.log(result) // 15
 // Array.isArray(arg)는 arg값이 배열이면 true, 아니면 false 값을 반환해줍니다.
 
 console.log(Array.isArray({})) // false;
-console.log(Array.isArray([]) // true;
+console.log(Array.isArray([])) // true
