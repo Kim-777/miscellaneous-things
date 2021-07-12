@@ -207,3 +207,10 @@ console.log('======================================================== 10. Functi
 
 
 console.log('======================================================== 11. Arrow Functions revisited ========================================================');
+
+
+function defer(f, ms) {
+    return function() {
+        setTimeout(() => f.apply(this, arguments), ms)
+    }
+}
