@@ -1,3 +1,4 @@
+/*
 console.log('======================================================== 1. number ========================================================');
 
 // 1. 숫자형
@@ -79,6 +80,56 @@ let arrayLike = {
 };
 
 console.log(arr1.concat(arrayLike));
+*/
+
+
+console.log('======================================================== 3-1 iterable ========================================================');
+let range = {
+    from : 1,
+    to: 5,
+};
+
+range[Symbol.iterator] = function () {
+
+    return {
+        current: this.from,
+        last: this.to,
+        next() {
+            if(this.current <= this.last) {
+                return {done: false, value: this.current++};
+            } else {
+                return {done: true};
+            }
+        }
+    }
+}
+
+
+for (let num of range) {
+    console.log(num)
+}
+
+// 이터러블 객체의 핵심은 '관심사의 분리(Separation of concern, SoC)'에 있습니다.
+let range2 = {
+    from: 10,
+    to: 15,
+    [Symbol.iterator]() {
+        this.current = this.from;
+        return this;
+    },
+    next() {
+        if (this.current <= this.to) {
+            return {done: false, value: this.current++};
+        } else {
+            return { done: true };
+        }
+    }
+}
+
+for (let num of range2) {
+    console.log(num);
+}
+
 
 
 
@@ -170,6 +221,14 @@ console.log('======================================================== 5. weakMap
 let weakMap = new WeakMap();
 let objForWeakMapKey = {};
 weakMap.set(objForWeakMapKey, "워크맵의 키는 반드시 객체여야 합니다.");
+
+let juju = { name: "juju"};
+let arrayForJuju = [juju];
+
+juju = null
+console.log(JSON.stringify(arrayForJuju[0]));
+
+
 
 
 console.log('======================================================== 6. Object.keys, values, entries ========================================================');

@@ -27,3 +27,27 @@ console.log(lion.__proto__); // { eats: true }
 lion.walk();
 // 프로토타입에서 상속받은 프로퍼티를 '상속 프로퍼티'라고 합니다.
 // 프로토타입 체인은 더 길어질 수도 있습니다.
+
+
+let animal2 = {
+	hunting() {
+		if(!this.isFull) {
+				console.log('사냥을 합니다.');
+		} else {
+				console.log('배가 불러서 낮잠을 잡니다.');	
+		}
+	},
+	eating() {
+		this.isFull = true;
+	}
+};
+
+let lion2 = {
+	name: "무서운 사자",
+	__proto__: animal2,
+}
+
+lion2.eating();
+
+lion2.hunting(); // "배가 불러서 낮잠을 잡니다."
+animal2.hunting(); // "사냥을 합니다."

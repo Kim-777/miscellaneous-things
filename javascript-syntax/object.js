@@ -48,3 +48,13 @@ let idFirst = Symbol.for("id");
 console.log(idFirst);
 let idAgain = Symbol.for('id');
 console.log(idFirst === idAgain);
+
+
+// 객체를 원시형으로 변환하기
+// ToPrimitive
+
+
+
+let str = 'Widget with id';
+
+console.log(str.indexOf('Widget'));
