@@ -1,26 +1,20 @@
 import "./App.css";
-import { Pokemon } from "./components/Pokemon";
-import { useState } from "react";
-
-const pokemon = ["bulbasaur", "pikachu", "ditto", "bulbasaur"];
+import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getUsers } from "./features/users/usersSlice";
 
 export default function App() {
-  const [pollingInterval, setPollingInterval] = useState(0);
+
+  const dispatch = useDispatch();
+  const { users } = useSelector(state => state.users)
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [])
 
   return (
     <div className="App">
-      <select
-        onChange={(change) => setPollingInterval(Number(change.target.value))}
-      >
-        <option value={0}>Off</option>
-        <option value={1000}>1s</option>
-        <option value={5000}>5s</option>
-      </select>
-      <div>
-        {pokemon.map((poke, index) => (
-          <Pokemon key={index} name={poke} pollingInterval={pollingInterval} />
-        ))}
-      </div>
+      <h1>리덕스 툴킷 시작!</h1>
     </div>
   );
 }
