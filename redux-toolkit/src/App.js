@@ -9,12 +9,19 @@ export default function App() {
   const { users } = useSelector(state => state.users)
 
   useEffect(() => {
-    dispatch(getUsers())
+    dispatch(getUsers("이걸 넣으면 어떻게 되게~"))
   }, [])
 
   return (
     <div className="App">
       <h1>리덕스 툴킷 시작!</h1>
+      <div>
+        {users && users.map((user) => (
+          <div>
+            {user.name}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
