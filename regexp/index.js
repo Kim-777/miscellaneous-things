@@ -21,3 +21,5 @@ console.log(str.match(regexp));
 
 regexp = /(go)+/ig
 console.log('Gogogo now!'.replace(regexp, "?"));
+
+console.log(Boolean(0));
