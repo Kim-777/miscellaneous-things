@@ -1,3 +1,10 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "plugin:@shoplflow/typescript",
+    "plugin:@shoplflow/react",
+    "plugin:@shoplflow/base"
+  ],
+  "plugins": [
+    "@shoplflow"
+  ]
 }
