@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "plugin:@shoplflow/typescript",
+    "plugin:@shoplflow/react",
+    "plugin:@shoplflow/base"
+  ],
+  "plugins": [
+    "@shoplflow"
+  ],
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  }
+}
