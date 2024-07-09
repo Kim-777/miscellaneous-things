@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "esnext",
+      "DOM",
+    ],
+    "types": [
+      "deno.ns",
+      "deno.window"
+    ]
+  }
+}
